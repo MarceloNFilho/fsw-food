@@ -5,8 +5,24 @@ import CategoryList from "./_components/category-list";
 import Banner from "./_components/banner";
 import ProductList from "./_components/product-list";
 import SectionTitle from "./_components/section-title";
+import { db } from "./_lib/prisma";
 
-export default function Home() {
+const Home = async () => {
+  const products = await db.product.findMany({
+    where: {
+      discountPercentage: {
+        gt: 0,
+      },
+    },
+    take: 10,
+    include: {
+      restaurant: {
+        select: {
+          name: true,
+        },
+      },
+    },
+  });
   return (
     <>
       <Header />
@@ -29,8 +45,10 @@ export default function Home() {
         <div className="px-5">
           <SectionTitle title="Pedidos recomendados" />
         </div>
-        <ProductList />
+        <ProductList products={products} />
       </div>
     </>
   );
-}
+};
+
+export default Home;
