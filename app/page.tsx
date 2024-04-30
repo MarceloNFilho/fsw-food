@@ -47,6 +47,10 @@ const Home = async () => {
         </div>
         <ProductList products={products} />
       </div>
+
+      <div className="px-5 pt-6">
+        <Banner src="/promo-banner-02.png" alt="A partir de 17,90 em lanches" />
+      </div>
     </>
   );
 };
