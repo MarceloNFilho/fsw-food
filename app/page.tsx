@@ -20,6 +20,7 @@ const Home = async () => {
       restaurant: {
         select: {
           name: true,
+          id: true,
         },
       },
     },
@@ -44,7 +45,7 @@ const Home = async () => {
 
       <div className="pt-6 space-y-4">
         <div className="px-5">
-          <SectionTitle title="Pedidos recomendados" />
+          <SectionTitle title="Pedidos recomendados" route="pedidos" />
         </div>
         <ProductList products={products} />
       </div>
@@ -55,7 +56,7 @@ const Home = async () => {
 
       <div className="py-6 space-y-4">
         <div className="px-5">
-          <SectionTitle title="Restaurantes recomendados" />
+          <SectionTitle title="Restaurantes recomendados" route="restaurants" />
         </div>
         <RestaurantList />
       </div>
