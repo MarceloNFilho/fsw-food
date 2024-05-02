@@ -6,6 +6,7 @@ import Image from "next/image";
 import { calculateProductTotalPrice, priceFormatter } from "../_helpers/price";
 import Link from "next/link";
 import DiscountTag from "./discount-tag";
+import { cn } from "../_lib/utils";
 
 interface ProductItemProps {
   product: Prisma.ProductGetPayload<{
@@ -17,15 +18,16 @@ interface ProductItemProps {
       };
     };
   }>;
+  className?: string;
 }
 
-const ProductItem = ({ product }: ProductItemProps) => {
+const ProductItem = ({ product, className }: ProductItemProps) => {
   return (
     <Link
-      className="min-w-[150px] max-w-[150px] space-y-2"
+      className={cn("min-w-[150px] max-w-[150px] space-y-2", className)}
       href={`/products/${product.id}`}
     >
-      <div className=" relative w-full h-[150px]">
+      <div className=" relative w-full aspect-square">
         <Image
           src={product.imageUrl}
           alt={product.name}
