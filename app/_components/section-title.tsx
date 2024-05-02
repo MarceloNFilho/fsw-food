@@ -17,8 +17,9 @@ const SectionTitle = ({ title, route }: SectionTitleProps) => {
         className="h-fit text-primary p-0 hover:bg-transparent"
         asChild
       >
-        <Link href={`/${route}/recommended`}>Ver todos</Link>
-        <ChevronRight size={16} />
+        <Link href={`/${route}/recommended`}>
+          Ver todos <ChevronRight size={16} />
+        </Link>
       </Button>
     </div>
   );
