@@ -45,7 +45,7 @@ const Home = async () => {
 
       <div className="pt-6 space-y-4">
         <div className="px-5">
-          <SectionTitle title="Pedidos recomendados" route="pedidos" />
+          <SectionTitle title="Pedidos recomendados" route="products" />
         </div>
         <ProductList products={products} />
       </div>

@@ -12,15 +12,14 @@ const SectionTitle = ({ title, route }: SectionTitleProps) => {
     <div className="flex justify-between items-center">
       <h2 className="font-semibold">{title}</h2>
 
-      <Link href={`/${route}/recommended`}>
-        <Button
-          variant={"ghost"}
-          className="h-fit text-primary p-0 hover:bg-transparent"
-        >
-          Ver todos
-          <ChevronRight size={16} />
-        </Button>
-      </Link>
+      <Button
+        variant={"ghost"}
+        className="h-fit text-primary p-0 hover:bg-transparent"
+        asChild
+      >
+        <Link href={`/${route}/recommended`}>Ver todos</Link>
+        <ChevronRight size={16} />
+      </Button>
     </div>
   );
 };
