@@ -15,12 +15,16 @@ const Restaurants = () => {
 
   useEffect(() => {
     const fetchRestaurants = async () => {
-      if (!search) return notFound();
+      if (!search) return;
       const result = await searchForRestaurants(search);
       setRestaurants(result);
     };
     fetchRestaurants();
   }, [search]);
+
+  if (!search) {
+    return notFound();
+  }
 
   return (
     <>
