@@ -20,14 +20,14 @@ const Cart = () => {
   }
 
   return (
-    <div className="py-6">
-      <div className="space-y-4">
+    <div className="py-6 flex flex-col h-full">
+      <div className="flex-auto space-y-4">
         {products.map((product) => (
           <CartItem key={product.id} cartProduct={product} />
         ))}
       </div>
 
-      <div className="absolute bottom-6 right-5 left-5 space-y-6">
+      <div className="space-y-6">
         <Card>
           <CardContent className="p-5 space-y-2">
             <div className="flex items-center justify-between text-xs">
@@ -63,7 +63,7 @@ const Cart = () => {
           </CardContent>
         </Card>
 
-        <Button className="w-full h-11">Finalizar compra</Button>
+        <Button className="w-full h-11">Finalizar pedido</Button>
       </div>
     </div>
   );
