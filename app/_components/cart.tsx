@@ -12,7 +12,7 @@ const Cart = () => {
 
   if (products.length === 0) {
     return (
-      <div className="flex flex-col gap-1 items-center text-muted-foreground p-6">
+      <div className="flex flex-col gap-1 justify-center items-center h-full text-muted-foreground">
         <span>¯\_(ツ)_/¯</span>
         <span className="text-sm">Parece que sua sacola está vazia!</span>
       </div>
