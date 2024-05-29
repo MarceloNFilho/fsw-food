@@ -99,8 +99,9 @@ const Header = () => {
             <Button
               variant="ghost"
               className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
+              onClick={handleSignOutClick}
             >
-              <LogOutIcon size={16} onClick={handleSignOutClick} />
+              <LogOutIcon size={16} />
               <span className="block">Sair da conta</span>
             </Button>
           )}
