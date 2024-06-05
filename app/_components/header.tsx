@@ -79,16 +79,27 @@ const Header = () => {
           </div>
 
           <div>
-            {pages.map((page) => (
+            {data?.user ? (
+              pages.map((page) => (
+                <Button
+                  key={page.name}
+                  variant="ghost"
+                  className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
+                >
+                  {page.icon}
+                  <span className="block">{page.name}</span>
+                </Button>
+              ))
+            ) : (
               <Button
-                key={page.name}
+                key={pages[0].name}
                 variant="ghost"
                 className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
               >
-                {page.icon}
-                <span className="block">{page.name}</span>
+                {pages[0].icon}
+                <span className="block">{pages[0].name}</span>
               </Button>
-            ))}
+            )}
           </div>
 
           <div className="py-6">
