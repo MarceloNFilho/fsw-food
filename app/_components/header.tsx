@@ -85,9 +85,12 @@ const Header = () => {
                   key={page.name}
                   variant="ghost"
                   className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
+                  asChild
                 >
-                  {page.icon}
-                  <span className="block">{page.name}</span>
+                  <Link href={page.link}>
+                    {page.icon}
+                    <span className="block">{page.name}</span>
+                  </Link>
                 </Button>
               ))
             ) : (
@@ -96,8 +99,10 @@ const Header = () => {
                 variant="ghost"
                 className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
               >
-                {pages[0].icon}
-                <span className="block">{pages[0].name}</span>
+                <Link href={pages[0].link}>
+                  {pages[0].icon}
+                  <span className="block">{pages[0].name}</span>
+                </Link>
               </Button>
             )}
           </div>
