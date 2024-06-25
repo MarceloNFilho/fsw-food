@@ -99,7 +99,7 @@ const Header = () => {
                 variant="ghost"
                 className="w-full justify-start space-x-3 text-sm font-normal rounded-sm"
               >
-                <Link href={pages[0].link}>
+                <Link href={pages[0].link} className="flex space-x-3">
                   {pages[0].icon}
                   <span className="block">{pages[0].name}</span>
                 </Link>
