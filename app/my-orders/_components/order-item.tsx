@@ -130,7 +130,7 @@ const OrderItem = ({ order }: OrderItemProps) => {
             disabled={order.status !== "COMPLETED"}
             onClick={handleRedoOrderClick}
           >
-            Refazer pedido
+            Adicionar ao carrinho
           </Button>
         </div>
       </CardContent>
