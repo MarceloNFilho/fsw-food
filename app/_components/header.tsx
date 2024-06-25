@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between pt-6 px-5">
       <Link href={"/"} className="relative h-[30px] w-[100px]">
-        <Image src="/Logo.png" alt="Fsw Food" fill className="object-cover" />
+        <Image src="/Logo.png" alt="Fsw Food" fill quality={100} />
       </Link>
 
       <Sheet>
