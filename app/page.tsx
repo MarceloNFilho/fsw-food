@@ -8,6 +8,7 @@ import SectionTitle from "./_components/section-title";
 import { db } from "./_lib/prisma";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
+import MainBanner from "./_components/main-banner";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -53,15 +54,19 @@ const Home = async () => {
   return (
     <>
       <Header />
-      <div className="px-5 pt-6">
+      <div className="px-5 pt-6 max-lg:block hidden">
         <Search />
       </div>
 
-      <div className="pt-6">
+      <div className="max-lg:hidden block">
+        <MainBanner />
+      </div>
+
+      <div className="pt-6 max-lg:max-w-full max-w-[1552px] mx-auto">
         <CategoryList />
       </div>
 
-      <div className="px-5 pt-6">
+      <div className="px-5 pt-6 max-lg:block hidden">
         <Link href={`/categories/${pizzasCategory?.id}/products`}>
           <Banner
             src="/promo-banner-01.png"
@@ -77,7 +82,23 @@ const Home = async () => {
         <ProductList products={products} />
       </div>
 
-      <div className="px-5 pt-6">
+      <div className="px-5 pt-6 max-lg:block hidden">
+        <Link href={`/categories/${burgersCategory?.id}/products`}>
+          <Banner
+            src="/promo-banner-02.png"
+            alt="A partir de 17,90 em lanches"
+          />
+        </Link>
+      </div>
+
+      <div className="flex gap-5 pt-6 max-lg:hidden max-w-[1552px] mx-auto">
+        <Link href={`/categories/${pizzasCategory?.id}/products`}>
+          <Banner
+            src="/promo-banner-01.png"
+            alt="Até 30% de desconto em pizzas"
+          />
+        </Link>
+
         <Link href={`/categories/${burgersCategory?.id}/products`}>
           <Banner
             src="/promo-banner-02.png"

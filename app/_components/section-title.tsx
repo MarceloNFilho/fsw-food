@@ -9,7 +9,7 @@ interface SectionTitleProps {
 
 const SectionTitle = ({ title, route }: SectionTitleProps) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center max-lg:max-w-full max-w-[1552px] mx-auto">
       <h2 className="font-semibold">{title}</h2>
 
       <Button
