@@ -15,8 +15,13 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { pages } from "../_constants/pages";
 import { Separator } from "./ui/separator";
+import Search from "./search";
 
-const Header = () => {
+interface HeaderProps {
+  withSearch?: boolean;
+}
+
+const Header = ({ withSearch }: HeaderProps) => {
   const { data } = useSession();
 
   const handleSignInClick = () => {
@@ -28,10 +33,16 @@ const Header = () => {
   };
 
   return (
-    <div className="flex items-center justify-between max-lg:px-5 max-lg:pt-6 min-[1024px]:h-20 max-lg:w-full max-w-[1552px] mx-auto">
+    <div className="flex items-center justify-between max-lg:px-5 max-lg:pt-6 min-[1024px]:h-20 max-lg:w-full max-w-[1440px] mx-auto">
       <Link href={"/"} className="relative h-[30px] w-[100px]">
         <Image src="/Logo.png" alt="Fsw Food" fill quality={100} />
       </Link>
+
+      {withSearch && (
+        <div className="w-[600px]">
+          <Search />
+        </div>
+      )}
 
       <Sheet>
         <SheetTrigger>

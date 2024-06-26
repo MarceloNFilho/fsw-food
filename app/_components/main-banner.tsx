@@ -4,7 +4,7 @@ import Search from "./search";
 const MainBanner = () => {
   return (
     <div className="bg-primary w-full h-[500px]">
-      <div className="flex h-full items-end justify-between max-w-[1552px] mx-auto">
+      <div className="flex h-full items-end justify-between max-w-[1440px] mx-auto">
         <div className="flex flex-col h-full justify-center">
           <h1 className="text-[48px] font-bold text-white">Está com fome?</h1>
           <span className="text-white text-lg">

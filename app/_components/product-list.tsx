@@ -38,7 +38,7 @@ const ProductList = ({ products }: ProductListProps) => {
         },
       },
       "(min-width: 1280px)": {
-        slides: { perView: 7, spacing: 16 },
+        slides: { perView: 6, spacing: 16 },
         initial: 0,
         slideChanged(slider) {
           setCurrentSlide(slider.track.details.rel);
@@ -50,7 +50,7 @@ const ProductList = ({ products }: ProductListProps) => {
   return (
     <div
       ref={sliderRef}
-      className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 max-lg:max-w-full max-w-[1552px] mx-auto"
+      className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 max-lg:max-w-full max-w-[1440px] mx-auto"
     >
       <button
         className="hidden disabled:hidden lg:block"

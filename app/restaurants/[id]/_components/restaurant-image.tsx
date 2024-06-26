@@ -37,17 +37,17 @@ const RestaurantImage = ({
   const handleBackClick = () => router.back();
 
   return (
-    <div className="relative h-[250px] w-full">
+    <div className="relative max-lg:h-[250px] h-[380px] w-full">
       <Image
         src={restaurant.imageUrl}
         alt={restaurant.name}
         fill
         sizes="100%"
-        className="object-cover"
+        className="object-cover max-lg:rounded-none rounded-sm"
       />
 
       <Button
-        className="absolute left-4 top-4 rounded-full bg-white text-foreground hover:text-white"
+        className="absolute left-4 top-4 rounded-full bg-white text-foreground hover:text-white max-lg:flex hidden"
         size="icon"
         onClick={handleBackClick}
       >
@@ -56,7 +56,7 @@ const RestaurantImage = ({
 
       <Button
         size="icon"
-        className={`absolute right-4 top-4 rounded-full bg-gray-700 ${
+        className={`absolute right-4 top-4 rounded-full bg-gray-700 max-lg:flex hidden ${
           isFavorite && "bg-primary hover:bg-gray-700"
         }`}
         onClick={handleFavoriteClick}
