@@ -7,42 +7,37 @@ import { priceFormatter } from "../_helpers/price";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { cn } from "../_lib/utils";
-import {
-  favoriteRestaurante,
-  unfavoriteRestaurant,
-} from "../_actions/restaurant";
+import { toggleFavoriteRestaurant } from "../_actions/restaurant";
 import { toast } from "sonner";
+import { useSession } from "next-auth/react";
 
 interface RestaurantItemProps {
-  userId?: string;
   restaurant: Restaurant;
   className?: string;
-  userFavoriteRestaurants?: userFavoritesRestaurants[];
+  userFavoriteRestaurants: userFavoritesRestaurants[];
 }
 
 const RestaurantItem = ({
-  userId,
   restaurant,
   className,
   userFavoriteRestaurants,
 }: RestaurantItemProps) => {
+  const { data } = useSession();
   const isFavorite = userFavoriteRestaurants?.some(
     (fav) => fav.restaurantId === restaurant.id
   );
 
   const handleFavoriteClick = async () => {
-    if (!userId) return;
-
+    if (!data?.user.id) return;
     try {
-      if (isFavorite) {
-        await unfavoriteRestaurant(userId, restaurant.id);
-        return toast.success("Restaurante removido dos favoritos.");
-      }
-
-      await favoriteRestaurante(userId, restaurant.id);
-      toast.success("Restaurante favoritado!");
+      await toggleFavoriteRestaurant(data?.user.id, restaurant.id);
+      toast.success(
+        isFavorite
+          ? "Restaurante removido dos favoritos."
+          : "Restaurante favoritado."
+      );
     } catch (error) {
-      console.error(error);
+      toast.error("Erro ao favoritar restaurante.");
     }
   };
 
@@ -63,7 +58,7 @@ const RestaurantItem = ({
           <span className="font-semibold text-xs">5.0</span>
         </div>
 
-        {userId && (
+        {data?.user.id && (
           <Button
             size={"icon"}
             className={`absolute top-2 right-2 rounded-full w-7 h-7 border-none bg-white/25 ${

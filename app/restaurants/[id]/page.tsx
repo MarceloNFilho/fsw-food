@@ -5,8 +5,9 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import DeliveryInfo from "@/app/_components/delivery-info";
 import ProductList from "@/app/_components/product-list";
-import { timeStamp } from "console";
 import CartBanner from "./_components/cart-banner";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/_lib/auth";
 
 interface RestaurantPageProps {
   params: {
@@ -15,6 +16,14 @@ interface RestaurantPageProps {
 }
 
 const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
+  const session = await getServerSession(authOptions);
+
+  const userFavoriteRestaurants = await db.userFavoritesRestaurants.findMany({
+    where: {
+      userId: session?.user.id,
+    },
+  });
+
   const restaurant = await db.restaurant.findUnique({
     where: {
       id,
@@ -58,7 +67,10 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
 
   return (
     <div className="pb-6">
-      <RestaurantImage restaurant={restaurant} />
+      <RestaurantImage
+        restaurant={restaurant}
+        userFavoriteRestaurants={userFavoriteRestaurants}
+      />
       <div className="relative rounded-t-lg bg-white z-10 -mt-[1.5rem] flex justify-between items-center px-5 pt-5">
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-8 w-8">

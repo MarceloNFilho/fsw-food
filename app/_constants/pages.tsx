@@ -14,6 +14,6 @@ export const pages = [
   {
     name: "Restaurantes Favoritos",
     icon: <HeartIcon size={16} />,
-    link: "/",
+    link: "/my-favorites-restaurants",
   },
 ];

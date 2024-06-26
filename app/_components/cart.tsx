@@ -21,7 +21,11 @@ import {
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-const Cart = () => {
+interface CartProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const Cart = ({ setIsOpen }: CartProps) => {
   const router = useRouter();
   const { data } = useSession();
   const { products, subtotalPrice, totalPrice, totalDiscount, clearCart } =
@@ -60,8 +64,10 @@ const Cart = () => {
       });
 
       clearCart();
-      toast("Pedido realizado com sucesso!", {
-        description: "Você pode acompanha-lo na tela dos seus pedidos.",
+      setIsOpen(false);
+
+      toast("Pedido finalizado com sucesso!", {
+        description: "Você pode acompanhá-lo na tela dos seus pedidos.",
         action: {
           label: "Meus Pedidos",
           onClick: () => router.push("/my-orders"),
