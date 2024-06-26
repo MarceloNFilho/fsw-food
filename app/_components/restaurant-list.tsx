@@ -20,16 +20,13 @@ const RestaurantList = ({
 }: RestaurantListProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    slides: { perView: 2.3, spacing: 16 },
+    slides: { perView: 1.2, spacing: 16 },
     breakpoints: {
-      "(min-width: 640px)": {
-        slides: { perView: 3.5, spacing: 16 },
-      },
       "(min-width: 748px)": {
-        slides: { perView: 4.5, spacing: 16 },
+        slides: { perView: 2.5, spacing: 16 },
       },
       "(min-width: 1024px)": {
-        slides: { perView: 4, spacing: 16 },
+        slides: { perView: 3, spacing: 16 },
         initial: 0,
         slideChanged(slider) {
           setCurrentSlide(slider.track.details.rel);
