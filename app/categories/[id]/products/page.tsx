@@ -27,11 +27,17 @@ const CategoriesPage = async ({ params: { id } }: CategoriesPageProps) => {
   });
   return (
     <>
-      <Header />
+      <div className="max-lg:hidden">
+        <Header withSearch />
+      </div>
 
-      <div className="px-5 py-6">
+      <div className="max-lg:block hidden">
+        <Header />
+      </div>
+
+      <div className="max-lg:px-5 py-6 max-w-[1440px] mx-auto">
         <h2 className="font-semibold text-lg mb-6">{category?.name}</h2>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid max-lg:grid-cols-2 grid-cols-6 gap-6">
           {category?.products.map((product) => (
             <ProductItem
               className="min-w-full "

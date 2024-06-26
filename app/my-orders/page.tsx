@@ -29,7 +29,7 @@ const MyOrdersPage = async () => {
     <>
       <Header />
 
-      <div className="py-6 px-4">
+      <div className="py-6 max-lg:px-4 max-w-[1440px] mx-auto">
         <h2 className="font-semibold text-lg">Meus Pedidos</h2>
 
         <div className=" py-6 space-y-3">
