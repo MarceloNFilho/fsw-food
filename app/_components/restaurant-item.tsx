@@ -42,8 +42,10 @@ const RestaurantItem = ({
   };
 
   return (
-    <div className={cn("min-w-[266px] max-w-[266px] space-y-3", className)}>
-      <div className="w-full h-[136px] relative">
+    <div
+      className={cn("min-w-[266px] max-lg:max-w-[266px] space-y-3", className)}
+    >
+      <div className="w-full max-lg:h-[136px] h-48 relative">
         <Link href={`/restaurants/${restaurant.id}`}>
           <Image
             src={restaurant.imageUrl}

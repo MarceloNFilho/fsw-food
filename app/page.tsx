@@ -9,6 +9,8 @@ import { db } from "./_lib/prisma";
 import RestaurantList from "./_components/restaurant-list";
 import Link from "next/link";
 import MainBanner from "./_components/main-banner";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./_lib/auth";
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -27,6 +29,16 @@ const fetch = async () => {
     },
   });
 
+  const session = await getServerSession(authOptions);
+  const getRestaurants = await db.restaurant.findMany({ take: 10 });
+  const getUserFavoriteRestaurants = await db.userFavoritesRestaurants.findMany(
+    {
+      where: {
+        userId: session?.user.id,
+      },
+    }
+  );
+
   const getBurgersCategory = db.category.findFirst({
     where: {
       name: "Hambúrgueres",
@@ -39,17 +51,37 @@ const fetch = async () => {
     },
   });
 
-  const [products, burgersCategory, pizzasCategory] = await Promise.all([
+  const [
+    products,
+    restaurants,
+    userFavoriteRestaurants,
+    burgersCategory,
+    pizzasCategory,
+  ] = await Promise.all([
     getProducts,
+    getRestaurants,
+    getUserFavoriteRestaurants,
     getBurgersCategory,
     getPizzasCategory,
   ]);
 
-  return { products, burgersCategory, pizzasCategory };
+  return {
+    products,
+    restaurants,
+    userFavoriteRestaurants,
+    burgersCategory,
+    pizzasCategory,
+  };
 };
 
 const Home = async () => {
-  const { products, burgersCategory, pizzasCategory } = await fetch();
+  const {
+    products,
+    restaurants,
+    userFavoriteRestaurants,
+    burgersCategory,
+    pizzasCategory,
+  } = await fetch();
 
   return (
     <>
@@ -111,7 +143,10 @@ const Home = async () => {
         <div className="px-5">
           <SectionTitle title="Restaurantes recomendados" route="restaurants" />
         </div>
-        <RestaurantList />
+        <RestaurantList
+          restaurants={restaurants}
+          userFavoriteRestaurants={userFavoriteRestaurants}
+        />
       </div>
     </>
   );

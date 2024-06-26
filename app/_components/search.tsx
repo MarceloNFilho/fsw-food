@@ -6,7 +6,11 @@ import { Input } from "./ui/input";
 import { FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const Search = () => {
+interface SearchProps {
+  isSecondary?: boolean;
+}
+
+const Search = ({ isSecondary }: SearchProps) => {
   const router = useRouter();
   const [search, setSearch] = useState("");
 
@@ -30,7 +34,11 @@ const Search = () => {
         className="border-none"
         onChange={handleChange}
       />
-      <Button type="submit" size="icon">
+      <Button
+        className={`${isSecondary && "bg-yellow-500"}`}
+        type="submit"
+        size="icon"
+      >
         <SearchIcon size={20} />
       </Button>
     </form>

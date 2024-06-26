@@ -13,7 +13,7 @@ const MainBanner = () => {
           </span>
 
           <div className="bg-white rounded-sm p-6 mt-8">
-            <Search />
+            <Search isSecondary />
           </div>
         </div>
         <Image src="/yakisoba.png" alt="yakisoba" width={450} height={377} />
