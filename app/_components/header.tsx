@@ -50,7 +50,7 @@ const Header = ({ withSearch }: HeaderProps) => {
             <MenuIcon />
           </div>
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent className="max-lg:w-[80%]">
           <SheetHeader>
             <SheetTitle className="text-left">Menu</SheetTitle>
           </SheetHeader>

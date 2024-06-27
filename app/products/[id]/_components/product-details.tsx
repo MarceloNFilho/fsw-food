@@ -138,7 +138,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       </div>
 
       <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
-        <SheetContent>
+        <SheetContent className="max-lg:w-[80%]">
           <SheetHeader>
             <SheetTitle className="text-left">Sacola</SheetTitle>
           </SheetHeader>

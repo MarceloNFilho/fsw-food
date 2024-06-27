@@ -48,7 +48,7 @@ const CartBanner = ({ restaurant }: CartBannerProps) => {
           <SheetTrigger>
             <Button className="h-11">Ver sacola</Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="max-lg:w-[80%]">
             <SheetHeader>
               <SheetTitle className="text-left">Sacola</SheetTitle>
             </SheetHeader>
