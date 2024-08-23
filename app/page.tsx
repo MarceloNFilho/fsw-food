@@ -27,6 +27,10 @@ const fetch = async () => {
         },
       },
     },
+    distinct: "name",
+    orderBy: {
+      name: "asc",
+    },
   });
 
   const session = await getServerSession(authOptions);
@@ -123,7 +127,7 @@ const Home = async () => {
         </Link>
       </div>
 
-      <div className="flex gap-5 pt-6 max-lg:hidden max-w-[1224px] mx-auto">
+      <div className="flex gap-5 pt-6 max-lg:hidden max-xl:px-5 max-w-[1224px] mx-auto">
         <Link href={`/categories/${pizzasCategory?.id}/products`}>
           <Banner
             src="/promo-banner-01.png"

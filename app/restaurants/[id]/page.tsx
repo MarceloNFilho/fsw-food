@@ -79,7 +79,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
             userFavoriteRestaurants={userFavoriteRestaurants}
           />
           <div className="flex-1">
-            <div className="relative rounded-t-lg bg-white z-10 -mt-[1.5rem] flex justify-between items-center max-lg:px-5 pt-5">
+            <div className="relative rounded-t-lg bg-white z-10 -mt-[1.5rem] flex justify-between items-center max-xl:px-5 pt-5">
               <div className="flex items-center gap-[0.375rem]">
                 <div className="relative h-8 w-8">
                   <Image
@@ -101,10 +101,10 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
                 <span className="font-semibold text-xs">5.0</span>
               </div>
             </div>
-            <div className="max-lg:px-5">
+            <div className="max-xl:px-5">
               <DeliveryInfo restaurant={restaurant} />
             </div>
-            <div className="flex gap-4 overflow-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 mt-3">
+            <div className="flex gap-4 overflow-scroll [&::-webkit-scrollbar]:hidden max-xl:px-5 mt-3">
               {restaurant.categories.map((category) => (
                 <div
                   key={category.id}
@@ -130,13 +130,13 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
         </div>
 
         <div className="mt-6 space-y-4">
-          <h2 className="font-semibold max-lg:px-5">Mais pedidos</h2>
+          <h2 className="font-semibold max-xl:px-5">Mais pedidos</h2>
           <ProductList products={restaurant.products} />
         </div>
 
         {restaurant.categories.map((category) => (
           <div key={category.id} className="mt-6 space-y-4">
-            <h2 className="font-semibold max-lg:px-5">{category.name}</h2>
+            <h2 className="font-semibold max-xl:px-5">{category.name}</h2>
             <ProductList products={category.products} />
           </div>
         ))}

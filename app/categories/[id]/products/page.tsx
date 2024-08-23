@@ -35,7 +35,7 @@ const CategoriesPage = async ({ params: { id } }: CategoriesPageProps) => {
         <Header />
       </div>
 
-      <div className="max-lg:px-5 py-6 max-w-[1224px] mx-auto">
+      <div className="max-xl:px-5 py-6 max-w-[1224px] mx-auto">
         <h2 className="font-semibold text-lg mb-6">{category?.name}</h2>
         <div className="grid max-lg:grid-cols-2 grid-cols-6 gap-6">
           {category?.products.map((product) => (

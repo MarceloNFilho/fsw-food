@@ -7,7 +7,13 @@ import { authOptions } from "../_lib/auth";
 import { Prisma } from "@prisma/client";
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
-import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
+import {
+  ArrowLeftCircle,
+  ArrowRightCircle,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { Button } from "./ui/button";
 
 interface RestaurantListProps {
   restaurants: Prisma.RestaurantGetPayload<{}>[];
@@ -43,42 +49,46 @@ const RestaurantList = ({
   });
 
   return (
-    <div
-      ref={sliderRef}
-      className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 max-lg:max-w-full max-w-[1224px] mx-auto"
-    >
-      <button
-        className="hidden disabled:hidden lg:block"
-        onClick={(e: any) => e.stopPropagation() || instanceRef.current?.prev()}
-        disabled={currentSlide === 0}
+    <>
+      <div
+        ref={sliderRef}
+        className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-xl:px-5 max-lg:max-w-full max-w-[1224px] mx-auto"
       >
-        <ArrowLeftCircle
-          className="absolute bottom-1/2 left-2 z-10 -translate-y-1/2 bg-yellow-500 text-white rounded-full hover:brightness-125"
-          size={24}
-        />
-      </button>
-      {restaurants.map((restaurant) => (
-        <div key={restaurant.id} className="keen-slider__slide">
-          <RestaurantItem
-            restaurant={restaurant}
-            userFavoriteRestaurants={userFavoriteRestaurants}
-          />
-        </div>
-      ))}
-      <button
-        className="hidden disabled:hidden lg:block"
-        onClick={(e: any) => e.stopPropagation() || instanceRef.current?.next()}
-        disabled={
-          currentSlide ===
-          instanceRef?.current?.track.details.slides.length! - 1
-        }
-      >
-        <ArrowRightCircle
-          className="absolute bottom-1/2 right-2 -translate-y-1/2 bg-yellow-500 text-white rounded-full hover:brightness-125"
-          size={24}
-        />
-      </button>
-    </div>
+        {restaurants.map((restaurant) => (
+          <div key={restaurant.id} className="keen-slider__slide">
+            <RestaurantItem
+              restaurant={restaurant}
+              userFavoriteRestaurants={userFavoriteRestaurants}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center gap-2 max-w-[1224px] mx-auto justify-end max-xl:px-5">
+        <Button
+          size="icon"
+          className="z-10 hidden rounded-lg disabled:bg-primary/90 lg:block"
+          onClick={(e: any) =>
+            e.stopPropagation() || instanceRef.current?.prev()
+          }
+          disabled={currentSlide === 0}
+        >
+          <ChevronLeft className="text-white hover:brightness-125 w-full" />
+        </Button>
+        <Button
+          size="icon"
+          className="z-10 hidden rounded-lg disabled:bg-primary/90 lg:block"
+          onClick={(e: any) =>
+            e.stopPropagation() || instanceRef.current?.next()
+          }
+          disabled={
+            currentSlide ===
+            instanceRef?.current?.track.details.slides.length! - 1
+          }
+        >
+          <ChevronRight className="text-white hover:brightness-125 w-full" />
+        </Button>
+      </div>
+    </>
   );
 };
 

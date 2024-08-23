@@ -19,11 +19,11 @@ const RecommendedRestaurants = async () => {
     <>
       <Header />
 
-      <div className="px-5 py-6">
+      <div className="max-xl:px-5 py-6 max-w-[1224px] mx-auto">
         <h2 className="font-semibold text-lg mb-6">
           Restaurantes recomendados
         </h2>
-        <div className="flex w-full flex-col gap-6">
+        <div className="flex w-full flex-col gap-6 lg:grid lg:grid-cols-3">
           {restaurants.map((restaurant) => (
             <RestaurantItem
               className="min-w-full max-w-full"

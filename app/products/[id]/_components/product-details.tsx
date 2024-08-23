@@ -78,8 +78,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <>
-      <div className="relative max-lg:py-5 max-lg:p-0 p-10 rounded-t-3xl z-10 mt-[-1.5rem] bg-white min-[1440px]:max-w-[50%]">
-        <div className="flex items-center gap-[0.375rem] max-lg:px-5">
+      <div className="relative max-lg:py-5 max-lg:p-0 rounded-t-3xl z-10 mt-[-1.5rem] bg-white min-[1024px]:max-w-[50%]">
+        <div className="flex items-center gap-[0.375rem] max-xl:px-5">
           <div className="relative h-4 w-4">
             <Image
               src={product.restaurant.imageUrl}
@@ -92,11 +92,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {product.restaurant.name}
           </span>
         </div>
-        <h1 className="font-semibold text-xl mt-1 mb-2 max-lg:px-5">
+        <h1 className="font-semibold text-xl mt-1 mb-2 max-xl:px-5">
           {product.name}
         </h1>
 
-        <div className="flex justify-between max-lg:px-5">
+        <div className="flex justify-between max-xl:px-5">
           <div>
             <div className="flex items-center gap-1">
               <h2 className="font-semibold text-xl">
@@ -118,16 +118,16 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           />
         </div>
 
-        <div className="max-lg:px-5">
+        <div className="max-xl:px-5">
           <DeliveryInfo restaurant={product.restaurant} />
         </div>
 
-        <div className="mt-6 space-y-3 max-lg:px-5">
+        <div className="mt-6 space-y-3 max-xl:px-5">
           <h3 className="font-semibold">Sobre</h3>
           <p className="text-sm text-muted-foreground">{product.description}</p>
         </div>
 
-        <div className="max-lg:px-5 mt-6">
+        <div className="max-xl:px-5 mt-6">
           <Button
             onClick={handleAddProductToCart}
             className="w-full h-11 font-semibold"
