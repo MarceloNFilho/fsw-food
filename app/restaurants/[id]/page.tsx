@@ -72,7 +72,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       <div className="max-lg:hidden block mb-6">
         <Header withSearch />
       </div>
-      <div className="pb-6 max-lg:max-w-full max-w-[1440px] mx-auto">
+      <div className="pb-6 max-lg:max-w-full max-w-[1224px] mx-auto">
         <div className="flex max-lg:flex-col gap-8">
           <RestaurantImage
             restaurant={restaurant}

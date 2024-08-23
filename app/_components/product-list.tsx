@@ -50,7 +50,7 @@ const ProductList = ({ products }: ProductListProps) => {
   return (
     <div
       ref={sliderRef}
-      className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 max-lg:max-w-full max-w-[1440px] mx-auto"
+      className="keen-slider relative flex overflow-x-scroll [&::-webkit-scrollbar]:hidden max-lg:px-5 max-lg:max-w-full max-w-[1224px] mx-auto"
     >
       <button
         className="hidden disabled:hidden lg:block"

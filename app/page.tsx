@@ -94,7 +94,7 @@ const Home = async () => {
         <MainBanner />
       </div>
 
-      <div className="pt-6 max-lg:max-w-full max-w-[1440px] mx-auto">
+      <div className="pt-6 max-lg:max-w-full max-w-[1224px] mx-auto">
         <CategoryList />
       </div>
 
@@ -123,7 +123,7 @@ const Home = async () => {
         </Link>
       </div>
 
-      <div className="flex gap-5 pt-6 max-lg:hidden max-w-[1440px] mx-auto">
+      <div className="flex gap-5 pt-6 max-lg:hidden max-w-[1224px] mx-auto">
         <Link href={`/categories/${pizzasCategory?.id}/products`}>
           <Banner
             src="/promo-banner-01.png"

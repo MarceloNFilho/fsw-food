@@ -24,7 +24,7 @@ const MyFavoritesRestaurants = async () => {
     <>
       <Header />
 
-      <div className="max-lg:px-5 py-6 max-w-[1440px] mx-auto">
+      <div className="max-lg:px-5 py-6 max-w-[1224px] mx-auto">
         <h2 className="font-semibold text-lg mb-6">Restaurantes favoritos</h2>
         <div className="max-lg:flex w-full max-lg:flex-col grid grid-cols-3 gap-6">
           {userFavoritesRestaurants.length > 0 ? (

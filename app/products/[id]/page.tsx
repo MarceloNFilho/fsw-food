@@ -41,7 +41,7 @@ const ProductPage = async ({ params: { id } }: ProductPageProps) => {
   });
 
   return (
-    <div className="max-lg:max-w-full max-w-[1440px] mx-auto max-lg:pb-6">
+    <div className="max-lg:max-w-full max-w-[1224px] mx-auto max-lg:pb-6">
       <div className="max-lg:hidden block mb-6">
         <Header withSearch />
       </div>
