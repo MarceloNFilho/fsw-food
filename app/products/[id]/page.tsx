@@ -45,7 +45,7 @@ const ProductPage = async ({ params: { id } }: ProductPageProps) => {
       <div className="max-lg:hidden block mb-6">
         <Header withSearch />
       </div>
-      <div className="flex max-lg:flex-col min-[1024px]:gap-8 items-center justify-start max-xl:px-5">
+      <div className="flex max-lg:flex-col min-[1024px]:gap-8 items-center justify-start lg:px-5 xl:px-0">
         <ProductImage product={product} />
         <ProductDetails product={product} />
       </div>
